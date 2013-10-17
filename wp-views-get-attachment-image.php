@@ -24,22 +24,19 @@ function shortcode_get_image($atts)
 			if(wp_attachment_is_image($id))
 			{
 				$image_info = wp_get_attachment_image_src($id, $size);
-				print_r($image_info);
 				return $image_info[0];
 			}
 			else
 			{
-				//FIXME: Change to a better solution. Perhaps make an if in the view with new shortcode first: [wpv-attachment-image-exists id="[wpv-post-id]"]
-				$image_info = wp_get_attachment_image_src(1520, $size);
-				return $image_info[0];				
+				return "";				
 			}
 		}
 		else
 		{
 			if(wp_attachment_is_image($id))
 				return wp_get_attachment_image($id, $size);
-			else //FIXME: Change to a better solution. Perhaps make an if in the view with new shortcode first: [wpv-attachment-image-exists id="[wpv-post-id]"]
-				return wp_get_attachment_image(1520, $size); //1520 = not image media			
+			else
+				return "";		
 		}
 	}
 	else
